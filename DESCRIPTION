@@ -1,0 +1,14 @@
+Package: lisp
+Type: Package
+Title: List-processing à la SRFI-1
+Version: 0.1
+Date: 2010-03-02
+Author: Peter Danenberg <pcd@roxygen.org>
+Maintainer: Peter Danenberg <pcd@roxygen.org>
+Description: Though SRFI-1 scopes both list-processing and higher-order
+    programming, we'll save some list-orthogonal functions for the
+    `functional' package; this is freely a mixture of implementation
+    and API.
+License: GPL (>= 2)
+LazyLoad: yes
+Collate: 'list.R'
