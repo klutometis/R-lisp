@@ -1,0 +1,14 @@
+# -*- mode: org; -*-
+* TODO zip should preserve names
+* DONE zip.list with one list is broken
+  CLOSED: [2010-03-09 Tue 19:05]
+  - CLOSING NOTE [2010-03-09 Tue 19:05] \\
+    have to do an explicit check for one list, apparently; not tested with zip.c.
+  #+BEGIN_SRC R
+    source('package.R')
+    library(RUnit)
+    
+    checkEquals(zip.list(list(1, 2)),
+                list(1, 2),
+                'zip on a monadic list')
+  #+END_SRC

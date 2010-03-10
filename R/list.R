@@ -89,8 +89,12 @@ is.odd <- function(a) {
 #' @param \dots the lists to be zipped
 #' @return A list of tuplets
 zip <- function(zipper, ...) {
-  m <- mapply(zipper, ...)
-  split(m, col(m))
+  if (length(list(...)) == 1)
+    c(...)
+  else {
+    m <- mapply(zipper, ...)
+    split(m, col(m))
+  }
 }
 
 #' Zip using \code{c}.
