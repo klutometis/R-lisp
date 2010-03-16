@@ -129,3 +129,17 @@ pairwise <- function(list) {
   evens <- seq(2, length, 2)
   zip.c(list[odds], list[evens])
 }
+
+#' Apply \code{f} to the successive elements of \code{...}.
+#' @param f the function to apply, whose arity should match the
+#' cardinality of \code{...}
+#' @param ... lists upon which to apply \code{f} successively
+#' @return NULL
+for.each <- function(f, ...) {
+  args <- list(...)
+  while (!do.call(any, Map(is.nil, args))) {
+    applicanda <- Map(car, args)
+    do.call(f, applicanda)
+    args <- Map(cdr, args)
+  }
+}

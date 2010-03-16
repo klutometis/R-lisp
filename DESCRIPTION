@@ -1,5 +1,6 @@
 Package: lisp
 Type: Package
+Encoding: UTF-8
 Title: List-processing à la SRFI-1
 Version: 0.1
 Date: 2010-03-02
