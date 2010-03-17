@@ -1,5 +1,39 @@
 # -*- mode: org; -*-
 * TODO zip should preserve names
+* DONE =pair.fold.right=
+  CLOSED: [2010-03-17 Wed 04:34]
+  - CLOSING NOTE [2010-03-17 Wed 04:34] \\
+    still TODO: one-list fast-track
+  #+BEGIN_SRC R
+    library(RUnit)
+    source('package.R')
+    
+    cdrs <- function(...)
+      tryCatch(Map(cdr, list(...)),
+               error=function(e) nil)
+    
+    ##' pair-fold-right from SRFI-1.
+    ##' @TODO one-list fast-path
+    pair.fold.right <- function(f, nil, ...) {
+      lists <- list(...)
+      iter <- function(lists) {
+        cdrs <- do.call(cdrs, lists)
+        if (is.nil(cdrs))
+          nil
+        else
+          do.call(f, append(lists, list(iter(cdrs))))
+      }
+      iter(lists)
+    }
+    
+    checkEquals(pair.fold.right(function(a, b, accum)
+                                append(a, append(b, accum)) ,
+                                NULL,
+                                list(1, 2),
+                                list(3, 4)),
+                list(1, 2, 3, 4, 2, 4),
+                'pair.fold.right on multiple lists')
+  #+END_SRC
 * DONE zip.list with one list is broken
   CLOSED: [2010-03-09 Tue 19:05]
   - CLOSING NOTE [2010-03-09 Tue 19:05] \\
@@ -12,3 +46,5 @@
                 list(1, 2),
                 'zip on a monadic list')
   #+END_SRC
+
+

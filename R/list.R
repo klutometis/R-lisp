@@ -143,3 +143,27 @@ for.each <- function(f, ...) {
     args <- Map(cdr, args)
   }
 }
+
+##' Try to get the \code{cdrs}; otherwise, return \code{nil}.
+##' @param ... lists to \code{cdr}
+##' @return the \code{cdr} of the lists
+cdrs <- function(...)
+  tryCatch(Map(cdr, list(...)),
+           error=function(e) nil)
+
+##' pair-fold-right from SRFI-1.
+##' @param f function to apply over the list-tails
+##' @param nil the default value
+##' @param ... the lists whose tails fold over
+##' @TODO one-list fast-path
+pair.fold.right <- function(f, nil, ...) {
+  lists <- list(...)
+  iter <- function(lists) {
+    cdrs <- do.call(cdrs, lists)
+    if (is.nil(cdrs))
+      nil
+    else
+      do.call(f, append(lists, list(iter(cdrs))))
+  }
+  iter(lists)
+}
