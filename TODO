@@ -1,4 +1,15 @@
 # -*- mode: org; -*-
+* DONE last
+  CLOSED: [2010-04-21 Wed 16:41]
+  #+BEGIN_SRC R
+    library(RUnit)
+    
+    last <- function(list) car(tail(list, 1))
+    
+    checkEquals(last(list(1, 2, 3)),
+                3,
+                'last element of trinary list')
+  #+END_SRC
 * DONE zip should preserve names
   CLOSED: [2010-04-21 Wed 12:47]
   - CLOSING NOTE [2010-04-21 Wed 12:47] \\
