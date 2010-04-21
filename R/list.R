@@ -190,3 +190,5 @@ zip.with.names <- function(...) {
     iter(NULL, lists, Map(names, lists))
   }
 }
+
+last <- function(list) car(tail(list, 1))
