@@ -16,3 +16,13 @@ test.pair.fold.right <- function() {
               list(1, 2, 3, 4, 2, 4),
               'pair.fold.right on multiple lists')
 }
+
+test.zip.with.names <- function() {
+  checkEquals(zip.with.names(j=list(a=1, x=4, h=3),
+                             k=list(b=2, y=4, i=10),
+                             l=list(c=3, z=5, 11)),
+              list(j=list(a=1, b=2, c=3),
+                   k=list(x=4, y=4, z=5),
+                   l=list(h=3, i=10, 11)),
+              'zip.with.names with meta-names, too')
+}
