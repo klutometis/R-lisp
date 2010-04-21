@@ -1,5 +1,44 @@
 # -*- mode: org; -*-
-* TODO zip should preserve names
+* DONE zip should preserve names
+  CLOSED: [2010-04-21 Wed 12:47]
+  - CLOSING NOTE [2010-04-21 Wed 12:47] \\
+    new function: =zip.with.names=
+  #+BEGIN_SRC R
+    library(RUnit)
+    
+    source('package.R')
+    
+    zip.with.names <- function(...) {
+      if (length(list(...)) == 1)
+        c(...)
+      else {
+        lists <- list(...)
+        lists.names <- names(lists)
+        iter <- function(zipped, lists, names) {
+          if (Reduce(`||`, Map(is.nil, lists), FALSE))
+            zipped
+          else {
+            this.list <- Map(car, lists)
+            these.names <- Map(car, names)
+            names(this.list) <- these.names
+            iter(append(zipped, list(this.list)),
+                 Map(cdr, lists),
+                 Map(cdr, names))
+          }
+        }
+        zipped <- iter(NULL, lists, Map(names, lists))
+        names(zipped) <- lists.names
+        zipped
+      }
+    }
+    
+    checkEquals(zip.with.names(j=list(a=1, x=4, h=3),
+                               k=list(b=2, y=4, i=10),
+                               l=list(c=3, z=5, 11)),
+                list(j=list(a=1, b=2, c=3),
+                     k=list(x=4, y=4, z=5),
+                     l=list(h=3, i=10, 11)))
+  #+END_SRC
 * DONE =pair.fold.right=
   CLOSED: [2010-03-17 Wed 04:34]
   - CLOSING NOTE [2010-03-17 Wed 04:34] \\
