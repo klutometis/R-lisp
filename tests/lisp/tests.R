@@ -26,3 +26,9 @@ test.zip.with.names <- function() {
                    l=list(h=3, i=10, 11)),
               'zip.with.names with meta-names, too')
 }
+
+test.last <- function() {
+  checkEquals(last(list(1, 2, 3)),
+              3,
+              'last element of trinary list')
+}
