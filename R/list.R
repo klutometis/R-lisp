@@ -167,26 +167,3 @@ pair.fold.right <- function(f, nil, ...) {
   }
   iter(lists)
 }
-
-##' Do a less efficient zip whilst preserving names.
-##' @param ... lists to be zipped whilst preserving names
-zip.with.names <- function(...) {
-  if (length(list(...)) == 1)
-    c(...)
-  else {
-    lists <- list(...)
-    iter <- function(zipped, lists, names) {
-      if (Reduce(`||`, Map(is.nil, lists), FALSE))
-        zipped
-      else {
-        this.list <- Map(car, lists)
-        these.names <- Map(car, names)
-        names(this.list) <- these.names
-        iter(append(zipped, list(this.list)),
-             Map(cdr, lists),
-             Map(cdr, names))
-      }
-    }
-    iter(NULL, lists, Map(names, lists))
-  }
-}
