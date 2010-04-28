@@ -90,7 +90,7 @@ is.odd <- function(a) {
 #' @return A list of tuplets
 zip <- function(zipper, ...) {
   if (length(list(...)) == 1)
-    c(...)
+    Map(zipper, c(...))
   else {
     m <- mapply(zipper, ...)
     split(m, col(m))
@@ -172,7 +172,7 @@ pair.fold.right <- function(f, nil, ...) {
 ##' @param ... lists to be zipped whilst preserving names
 zip.with.names <- function(...) {
   if (length(list(...)) == 1)
-    c(...)
+    Map(zipper, c(...))
   else {
     lists <- list(...)
     iter <- function(zipped, lists, names) {
