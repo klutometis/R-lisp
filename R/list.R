@@ -113,6 +113,29 @@ zip.list <- function(...) {
   zip(list, ...)
 }
 
+##' Do a less efficient zip whilst preserving names.
+##' @param ... lists to be zipped whilst preserving names
+zip.with.names <- function(...) {
+  if (length(list(...)) == 1)
+    Map(list, c(...))
+  else {
+    lists <- list(...)
+    iter <- function(zipped, lists, names) {
+      if (Reduce(`||`, Map(is.nil, lists), FALSE))
+        zipped
+      else {
+        this.list <- Map(car, lists)
+        these.names <- Map(car, names)
+        names(this.list) <- these.names
+        iter(append(zipped, list(this.list)),
+             Map(cdr, lists),
+             Map(cdr, names))
+      }
+    }
+    iter(NULL, lists, Map(names, lists))
+  }
+}
+
 #' Combine a list into pairwise elements; lists should
 #' be of the same length. In case of odd numbers of members,
 #' the last will be removed.
@@ -166,29 +189,6 @@ pair.fold.right <- function(f, nil, ...) {
       do.call(f, append(lists, list(iter(cdrs))))
   }
   iter(lists)
-}
-
-##' Do a less efficient zip whilst preserving names.
-##' @param ... lists to be zipped whilst preserving names
-zip.with.names <- function(...) {
-  if (length(list(...)) == 1)
-    Map(zipper, c(...))
-  else {
-    lists <- list(...)
-    iter <- function(zipped, lists, names) {
-      if (Reduce(`||`, Map(is.nil, lists), FALSE))
-        zipped
-      else {
-        this.list <- Map(car, lists)
-        these.names <- Map(car, names)
-        names(this.list) <- these.names
-        iter(append(zipped, list(this.list)),
-             Map(cdr, lists),
-             Map(cdr, names))
-      }
-    }
-    iter(NULL, lists, Map(names, lists))
-  }
 }
 
 last <- function(list) car(tail(list, 1))
