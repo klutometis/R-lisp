@@ -37,9 +37,8 @@
                  Map(cdr, names))
           }
         }
-        zipped <- iter(NULL, lists, Map(names, lists))
-        names(zipped) <- lists.names
-        zipped
+        structure(iter(NULL, lists, Map(names, lists)),
+                  names=names(lists))
       }
     }
     

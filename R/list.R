@@ -132,7 +132,8 @@ zip.with.names <- function(...) {
              Map(cdr, names))
       }
     }
-    iter(NULL, lists, Map(names, lists))
+    structure(iter(NULL, lists, Map(names, lists)),
+              names=names(lists))
   }
 }
 
