@@ -1,8 +1,19 @@
 \name{zip.c}
 \alias{zip.c}
-\title{Zip using c.}
-\usage{zip.c(...)}
-\description{Zip using \code{c}.}
-\value{A list of tuplets}
-\seealso{\code{\link{zip}}}
-\arguments{\item{\dots}{the lists to be zipped}}
+\title{Zip using \code{c}.}
+\usage{
+  zip.c(...)
+}
+\arguments{
+  \item{\dots}{the lists to be zipped}
+}
+\value{
+  A list of tuplets
+}
+\description{
+  Zip using \code{c}.
+}
+\seealso{
+  \code{\link{zip}}
+}
+

@@ -12,4 +12,7 @@ Description: Though SRFI-1 scopes both list-processing and higher-order
     and API.
 License: GPL (>= 2)
 LazyLoad: yes
-Collate: 'list.R'
+Suggests:
+    RUnit
+Collate:
+    'lisp.R'

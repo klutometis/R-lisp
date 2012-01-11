@@ -1,4 +1,6 @@
 # -*- mode: org; -*-
+* TODO Automatically generate =car=, ..., =cddddr=.
+  See [[https://github.com/klutometis/cadr/blob/master/src/cadr/core.clj][cadr]].
 * DONE last
   CLOSED: [2010-04-21 Wed 16:41]
   #+BEGIN_SRC R

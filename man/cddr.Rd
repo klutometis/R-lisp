@@ -1,7 +1,16 @@
 \name{cddr}
 \alias{cddr}
-\title{Composite car/cdr...}
-\usage{cddr(list)}
-\description{Composite \code{car}/\code{cdr}}
-\value{The extracted elements}
-\arguments{\item{list}{the list from which to extract}}
+\title{Composite \code{car}/\code{cdr}}
+\usage{
+  cddr(list)
+}
+\arguments{
+  \item{list}{the list from which to extract}
+}
+\value{
+  The extracted elements
+}
+\description{
+  Composite \code{car}/\code{cdr}
+}
+
