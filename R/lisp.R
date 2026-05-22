@@ -195,6 +195,7 @@ cdrs <- function(...)
 
 ##' Last element in a list.
 ##' @param list The list to last
+##' @importFrom utils tail
 ##' @export
 last <- function(list) car(tail(list, 1))
 
