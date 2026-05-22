@@ -7,7 +7,7 @@ Date: 2026-05-22
 Authors@R: person(given = "Peter",
                   family = "Danenberg",
                   role = c("aut", "cre"),
-                  email = "cran@pcd.la")
+                  email = "pcd@roxygen.org")
 Description: Provides list-processing utilities inspired by Scheme's
     SRFI-1 list library
     (<https://srfi.schemers.org/srfi-1/srfi-1.html>), including

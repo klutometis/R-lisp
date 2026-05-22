@@ -3,14 +3,14 @@
 ## Resubmission of an archived package
 
 `lisp` was archived on CRAN on 2022-03-07 because check NOTEs were not
-corrected in time.  The maintainer's email address on file
-(`pcd@roxygen.org`) is no longer active, which is why CRAN's
-correspondence at the time went unanswered.
+corrected in time.  The maintainer's email address (`pcd@roxygen.org`)
+had lapsed during a period of inactivity and CRAN's correspondence at
+the time went unanswered.  The address is now active again.
 
 This submission:
 
-* Updates the maintainer email to `cran@pcd.la` (Peter Danenberg, the
-  original and continuing maintainer).
+* Re-activates `pcd@roxygen.org` (the original and continuing
+  maintainer address, Peter Danenberg).
 * Adds `Authors@R` to `DESCRIPTION`.
 * Adds `importFrom(utils, tail)` so that `last()` no longer triggers a
   "no visible global function definition for 'tail'" NOTE.
