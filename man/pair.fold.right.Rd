@@ -11,6 +11,10 @@
 
   \item{...}{the lists whose tails fold over}
 }
+\value{
+  The result of folding \code{f} over the successive tails (pairs) of
+  the input lists; \code{nil} if the lists are empty.
+}
 \description{
   pair-fold-right from SRFI-1.
 }

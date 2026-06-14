@@ -130,6 +130,8 @@ zip.list <- function(...) {
 
 ##' Do a less efficient zip whilst preserving names.
 ##' @param ... lists to be zipped whilst preserving names
+##' @return A list of tuples (one per position) with names preserved
+##' from the input lists.
 ##' @export
 zip.with.names <- function(...) {
   if (length(list(...)) == 1)
@@ -195,6 +197,7 @@ cdrs <- function(...)
 
 ##' Last element in a list.
 ##' @param list The list to last
+##' @return The last element of \code{list}.
 ##' @importFrom utils tail
 ##' @export
 last <- function(list) car(tail(list, 1))
@@ -203,6 +206,8 @@ last <- function(list) car(tail(list, 1))
 ##' @param f function to apply over the list-tails
 ##' @param nil the default value
 ##' @param ... the lists whose tails fold over
+##' @return The result of folding \code{f} over the successive tails
+##' (pairs) of the input lists; \code{nil} if the lists are empty.
 ##' @TODO one-list fast-path
 ##' @export
 pair.fold.right <- function(f, nil, ...) {

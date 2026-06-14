@@ -7,6 +7,10 @@
 \arguments{
   \item{...}{lists to be zipped whilst preserving names}
 }
+\value{
+  A list of tuples (one per position) with names preserved from the
+  input lists.
+}
 \description{
   Do a less efficient zip whilst preserving names.
 }

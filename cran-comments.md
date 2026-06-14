@@ -1,24 +1,31 @@
 # cran-comments.md
 
-## Resubmission of an archived package
+## Resubmission addressing reviewer feedback
+
+This resubmits `lisp` 0.2 after Benjamin Altmann's review of the
+2026-05-22 submission. The two requested changes have been made:
+
+* Software/specification names are now single-quoted in the Title and
+  Description ('SRFI-1'), while this package's own exported function
+  names (car, cdr, zip, pairwise, for.each, pair.fold.right) are no
+  longer quoted.
+* Added `\value` sections to the `.Rd` files that were missing them:
+  `last.Rd`, `pair.fold.right.Rd`, and `zip.with.names.Rd`.
+
+## Background
 
 `lisp` was archived on CRAN on 2022-03-07 because check NOTEs were not
-corrected in time.  The maintainer's email address (`pcd@roxygen.org`)
-had lapsed during a period of inactivity and CRAN's correspondence at
-the time went unanswered.  The address is now active again.
+corrected in time. The maintainer's email address (pcd@roxygen.org)
+had lapsed during a period of inactivity, which is why CRAN's earlier
+correspondence went unanswered. The address is active again.
 
-This submission:
+This version also (from the original 0.2 resubmission):
 
-* Re-activates `pcd@roxygen.org` (the original and continuing
-  maintainer address, Peter Danenberg).
 * Adds `Authors@R` to `DESCRIPTION`.
 * Adds `importFrom(utils, tail)` so that `last()` no longer triggers a
   "no visible global function definition for 'tail'" NOTE.
-* Bumps the version from 0.1.1 to 0.2 and refreshes `Date`.
-* Expands the `Description` field and adds a reference URL for SRFI-1.
-* The previously NOTEd top-level `package.R` had already been moved to
-  `inst/` in the upstream repository (commit 49a5660) but never
-  resubmitted; that fix is included here as well.
+* Relocates the previously NOTEd top-level `package.R` to `inst/`.
+* Adds a reference URL for SRFI-1.
 
 ## Test environments
 
@@ -39,5 +46,6 @@ The two remaining NOTEs are:
 ## Downstream impact
 
 `lisp` is a build-time dependency of the CRAN package `functional`,
-which is itself scheduled for archival on 2026-06-08 and which we
-intend to resubmit shortly after `lisp` is restored to CRAN.
+which was archived on 2026-06-08 when this dependency could not be
+restored in time. `functional` 0.7 will be resubmitted as soon as
+`lisp` is back on CRAN, restoring it and its reverse dependencies.

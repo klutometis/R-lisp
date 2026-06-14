@@ -1,18 +1,18 @@
 Package: lisp
 Type: Package
 Encoding: UTF-8
-Title: List-Processing à La SRFI-1
+Title: List-Processing à La 'SRFI-1'
 Version: 0.2
-Date: 2026-05-22
+Date: 2026-06-13
 Authors@R: person(given = "Peter",
                   family = "Danenberg",
                   role = c("aut", "cre"),
                   email = "pcd@roxygen.org")
-Description: Provides list-processing utilities inspired by Scheme's
-    SRFI-1 list library
+Description: Provides list-processing utilities inspired by the
+    'SRFI-1' list library for Scheme
     (<https://srfi.schemers.org/srfi-1/srfi-1.html>), including
-    'car'/'cdr' family accessors, 'zip', 'pairwise', 'for.each',
-    'pair.fold.right' and friends.  Higher-order helpers that are
+    car/cdr family accessors, zip, pairwise, for.each,
+    pair.fold.right and friends.  Higher-order helpers that are
     orthogonal to list processing are deferred to the 'functional'
     package; this package is freely a mixture of implementation and
     API.
